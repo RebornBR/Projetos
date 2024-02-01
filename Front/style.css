@@ -1,0 +1,128 @@
+*{
+  margin: 0;
+  padding: 0;
+--cor-1: #f3e8ff;
+--cor-3: #d8b4fe;
+--cor-7: #7e22ce;
+--radius-small: 8px;
+--radius-normal: 12px; }
+
+html{
+  background-color:rgb(202, 232, 236);
+  background-image: url('/Projetos-main/BancoQuestoes/Front/imgs/img.jpeg');
+  background-repeat: no-repeat;
+  background-position-x: center;
+  
+}
+
+.blur-background {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+
+}
+
+main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width:900px;
+  height: 700px;
+  margin: 100px auto;
+  border: solid white;
+  border-radius: var(--radius-normal);
+  box-shadow: 10px 10px 15px 10px rgb(50, 50, 110);
+  background-color: rgba(63, 71, 102, 0.5);
+ 
+}
+
+h1 {
+  color:aliceblue;
+  border-bottom: solid 1px white;
+  text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  font-size: 60px;
+  padding: 10px;
+  margin: 12px;
+
+}
+
+h2{
+  margin-top: 10px;
+  margin-bottom: 3;
+  color:aliceblue;
+  text-align:inherit;
+  text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+  font-size: 50px;
+
+}
+
+.pergunta, .resposta{
+  width: 500px;
+  height: 150px;
+  resize: none;
+  border-radius: 12px;
+  box-shadow:  10px 14px 16px rgba(0.5, 0.5, 0.5, 0.5);
+
+}
+
+textarea {
+  padding: 10px;
+  font-size: 18px;
+
+}
+
+button {
+  font-size: 16px;
+  padding: 12px 24px;
+  margin:  -12px -24px;
+  border-radius: 8px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 20px; 
+  left: 50%; 
+  transition: transform 0.3s ease;
+
+}
+
+button:hover {
+  transform: scale(1.1);
+  background-color: #0056b3;
+
+}
+
+/* Daqui pra baixo é apenas um teste para ver como que fica a responsividade em um aparelho movel. */
+
+@media screen and (max-width: 600px) {
+  main {
+    width: 90%;
+    height: auto;
+    margin: 50px auto;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .pergunta, .resposta {
+    width: 90%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+
+  textarea {
+    font-size: 18px;
+  }
+}
