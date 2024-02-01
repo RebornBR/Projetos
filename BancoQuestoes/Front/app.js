@@ -5,17 +5,16 @@ const ids = 0;
 
 
 function cadastraQuestoes(){
-    fetch("http://localhost:8080/bancoquestao", 
+    fetch("http://localhost:8080/bancoquestao/salvar",
     {
         headers:{
             "Accept": "application/json",
             "Content-Type": "application/json"
         },
-        method: "POST",
+        method: "POST", 
         body: JSON.stringify({
-            id: ids.value  ,
             pergunta: iPergunta.value,
-            Resposta: iResposta.value
+            resposta: iResposta.value
         }) 
     })
     .then(function (res){console.log(res)})
@@ -24,6 +23,7 @@ function cadastraQuestoes(){
 
 formulario.addEventListener('submit', function (event) {
     event.preventDefault();
+    alert("teste " + iPergunta);
     cadastraQuestoes();
 });
 
