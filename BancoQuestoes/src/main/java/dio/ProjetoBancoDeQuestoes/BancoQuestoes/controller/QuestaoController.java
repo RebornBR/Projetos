@@ -5,18 +5,24 @@ import dio.ProjetoBancoDeQuestoes.BancoQuestoes.repository.QuestaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@CrossOrigin("*")
-@RequestMapping("/bancoquestao")
+@CrossOrigin("*" )
+@RequestMapping( "/bancoquestao")
 public class QuestaoController {
 
     @Autowired
     private QuestaoRepository Qrepository;
-    @PostMapping
+    @PostMapping("/salvar")
     public void salvarQuestao(@RequestBody Questao questao){
         /*
         podemos usar o if aqui mesmo para verificação de null e retorno da exception, e utilizar diretamente o metodo save que extend o JpaRepository, em vez da criação de um método dentro do QuestaoRepository
         *  */
         Qrepository.salvarQ(questao);
+    }
+    @GetMapping
+    public List<Questao> listaQuestoes(){
+        return (List<Questao>) Qrepository.findAll();
     }
 }

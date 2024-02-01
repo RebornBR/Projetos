@@ -1,21 +1,18 @@
- const formulario = document.querySelector("form");
- const iPergunta = document.querySelector(".pergunta").value
- const iResposta = document.querySelector(".resposta").value;
-const ids = 0;
-
-
+const formulario = document.querySelector("form");
 function cadastraQuestoes(){
-    fetch("http://localhost:8080/bancoquestao", 
+    const iPergunta = document.querySelector(".pergunta").value;
+    const iResposta = document.querySelector(".resposta").value;
+    alert(`Pergunta: ${iPergunta} // Resposta: ${iResposta} foi enviada ao banco de dados OU NÃO`)
+    fetch("http://localhost:8080/bancoquestao/salvar",
     {
         headers:{
             "Accept": "application/json",
             "Content-Type": "application/json"
         },
-        method: "POST",
+        method: "POST", 
         body: JSON.stringify({
-            id: ids.value  ,
-            pergunta: iPergunta.value,
-            Resposta: iResposta.value
+            pergunta: iPergunta,
+            resposta: iResposta
         }) 
     })
     .then(function (res){console.log(res)})
