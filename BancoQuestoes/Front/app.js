@@ -1,5 +1,5 @@
  const formulario = document.querySelector("form");
- const iPergunta = document.querySelector(".pergunta").value
+ const iPergunta = document.querySelector(".pergunta").value;
  const iResposta = document.querySelector(".resposta").value;
 const ids = 0;
 
@@ -13,8 +13,8 @@ function cadastraQuestoes(){
         },
         method: "POST", 
         body: JSON.stringify({
-            pergunta: iPergunta.value,
-            resposta: iResposta.value
+            pergunta: iPergunta,
+            resposta: iResposta
         }) 
     })
     .then(function (res){console.log(res)})
