@@ -8,9 +8,24 @@ formulario.addEventListener('focusout', function () {
     document.body.classList.remove('blur-background');
 });
 
+function limparCampo(tag){
+    campo = document.querySelector(tag);
+    campo.value = "";
+    }
+
+
 function cadastraQuestoes(){
     const iPergunta = document.querySelector(".pergunta").value;
     const iResposta = document.querySelector(".resposta").value;
+    if(iPergunta == ""){
+
+        alert("Pergunta não pode ser vazia ");
+
+    }else if(iResposta == ""){
+        
+        alert("Resposta não pode ser vazia ");
+
+    }else{
     alert(`Pergunta: ${iPergunta} // Resposta: ${iResposta}  foi enviada e salva no banco de dados.`)
     fetch("http://localhost:8080/bancoquestao/salvar",
     {
@@ -27,8 +42,11 @@ function cadastraQuestoes(){
     .then(function (res){console.log(res)})
     .catch(function (res){console.log(res)})
 }
+}
 
 formulario.addEventListener('submit', function (event) {
     event.preventDefault();
     cadastraQuestoes();
+    limparCampo(".pergunta");
+    limparCampo(".resposta");
 });
