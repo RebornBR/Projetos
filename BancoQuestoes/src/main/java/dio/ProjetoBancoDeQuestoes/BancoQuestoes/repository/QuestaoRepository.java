@@ -3,8 +3,12 @@ package dio.ProjetoBancoDeQuestoes.BancoQuestoes.repository;
 import dio.ProjetoBancoDeQuestoes.BancoQuestoes.model.Questao;
 import dio.ProjetoBancoDeQuestoes.BancoQuestoes.services.exceptions.CamposObrigatoriosException;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 @Repository
 public interface QuestaoRepository extends JpaRepository<Questao, Long> {
@@ -18,6 +22,11 @@ public interface QuestaoRepository extends JpaRepository<Questao, Long> {
         save(questao);
     }
 
-
-
+    @Query("from Questao t where t.pergunta = :pergunta ")
+    List<Questao> obterQ_PorPergunta(@Param("pergunta")String pergunta);
+ /*
+ Ou podemos utilizar apenas:
+ List<Questao> findBypergunta(String pergunta);
+ é reconhecido automaticamente pelo JPA, findByNomeParametroPresenteEmQuestao(tipo e nome parametro)
+  */
 }

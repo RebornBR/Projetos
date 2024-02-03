@@ -22,7 +22,7 @@ public class QuestaoController {
         Qrepository.salvarQ(questao);
     }
     @GetMapping("/obterquestao")
-    public List<Questao> listaQuestoes(){
-        return (List<Questao>) Qrepository.findAll();
+    public List<Questao> listaQuestoes(@RequestParam String pergunta ){
+        return (List<Questao>) Qrepository.obterQ_PorPergunta(pergunta);
     }
 }
