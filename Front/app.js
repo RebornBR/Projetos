@@ -46,18 +46,21 @@ function cadastraQuestoes(){
 }
 
 function obterQuestoes(){
-    iPergunta = document.querySelector(".pergunta").value;
-    iResposta = document.querySelector(".resposta").value;
+    const pergunta = document.querySelector(".pergunta").value
+    const params = new URLSearchParams({
+    pergunta // precisa ser mesmo nome que o requistado na api
+    })
+    alert(params)
     if(iPergunta == ""){
         alert("Pergunta não pode ser vazia ");
     }else{
-    fetch("http://localhost:8080/bancoquestao/obterquestao",
+    fetch(`http://localhost:8080/bancoquestao/obterquestao?${params}`,
     {
         headers:{
             "Accept": "application/json",
             "Content-Type": "application/json"
         },
-        method: "GET",  
+        method: "GET", 
     })
     .then(response => response.json())
     .then(Questao=>{
@@ -65,11 +68,12 @@ function obterQuestoes(){
     })
 }
 }
-
+function obterQ(){
+    obterQuestoes();
+}
 enviarQ.addEventListener('submit', function (event) {
     event.preventDefault();
     cadastraQuestoes();
-    obterQuestoes();
     limparCampo(".pergunta");
     limparCampo(".resposta");
 });
