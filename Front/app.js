@@ -1,6 +1,6 @@
 const enviarQ = document.querySelector("form");
-let iPergunta;
-let iResposta;
+let iPergunta; // variavel utilizada nos 2 metodos fetch
+let iResposta;// variavel utilizada nos 2 metodos fetch
 
 enviarQ.addEventListener('focusin', function () {
     document.body.classList.add('blur-background');
@@ -10,11 +10,32 @@ enviarQ.addEventListener('focusout', function () {
     document.body.classList.remove('blur-background');
 });
 
+/**
+ * 
+ * @param {*} tag Tag do html, que terá o value sendo limpo, isto é, ficando vazio
+ */
 function limparCampo(tag){
     campo = document.querySelector(tag);
     campo.value = "";
     }
 
+    /**
+     * 
+     * @param {*} tag Tag do html onde será realizado a inserção de um novo texto
+     * @param {*} texto O que será inserido no html
+     */
+function passarTextoParaHtml(tag, texto){
+        let campo = document.querySelector(tag);
+        campo.innerHTML = texto;
+    }
+    
+/**
+ * Função responsavel por fazer o fetch do method post
+ * <Métodos de controle:> 
+ * @throws Campos pergunta e resposta não podem ser vazios
+ * É requisitado, é necessário, o envio de um corpo(JSON). 
+ * !Os campos devem corresponder ao solicitado na api!
+ */
 function cadastraQuestoes(){
     iPergunta = document.querySelector(".pergunta").value;
     iResposta = document.querySelector(".resposta").value;
@@ -40,20 +61,24 @@ function cadastraQuestoes(){
             resposta: iResposta
         }) 
     })
-    .then(function (res){console.log(res)})
+    .then(function (res){console.log(res)}) // retorna o status
     .catch(function (res){console.log(res)})
+    limparCampo(".pergunta");
+    limparCampo(".resposta");
 }
 }
 
+/**
+ * Funçao responsavel por obter uma resposta(CORPO JSON) atraves da pergunta.
+ */
 function obterQuestoes(){
     const pergunta = document.querySelector(".pergunta").value
-    const params = new URLSearchParams({
-    pergunta // precisa ser mesmo nome que o requistado na api
+
+    const params = new URLSearchParams({ // transforma nosso parametro em um URL 
+    pergunta // precisa ser mesmo nome que o requisitado na api
     })
-    alert(params)
-    if(iPergunta == ""){
-        alert("Pergunta não pode ser vazia ");
-    }else{
+
+    //alert(params) // efetivo para testes, compare com o back end no swagger, será o mesmo endereço composto pela url http://localhost:8080/bancoquestao/obterquestao? e a pergunta
     fetch(`http://localhost:8080/bancoquestao/obterquestao?${params}`,
     {
         headers:{
@@ -64,16 +89,24 @@ function obterQuestoes(){
     })
     .then(response => response.json())
     .then(Questao=>{
+        if(Object.keys(Questao).length == 0){
+        alert("Questão não encontrada no banco de dados");
+        }else{
         console.log(Questao);
+        let respostaQ = JSON.stringify(Questao); // variavel que obtem o JSON convertido em string
+        console.log(respostaQ);
+        /* implementar função passarTextoParaHtml(), responsavel por exibir o retorno da resposta respectiva a pergunta, pela nossa funçao obterQuestões(
+         */
+        }
     })
 }
-}
+
+
 function obterQ(){
     obterQuestoes();
 }
+
 enviarQ.addEventListener('submit', function (event) {
     event.preventDefault();
     cadastraQuestoes();
-    limparCampo(".pergunta");
-    limparCampo(".resposta");
-});
+})
