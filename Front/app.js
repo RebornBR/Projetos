@@ -1,5 +1,6 @@
 const formulario = document.querySelector("form");
-
+let iPergunta;
+let iResposta;
 formulario.addEventListener('focusin', function () {
     document.body.classList.add('blur-background');
 });
@@ -15,8 +16,8 @@ function limparCampo(tag){
 
 
 function cadastraQuestoes(){
-    const iPergunta = document.querySelector(".pergunta").value;
-    const iResposta = document.querySelector(".resposta").value;
+    iPergunta = document.querySelector(".pergunta").value;
+    iResposta = document.querySelector(".resposta").value;
     if(iPergunta == ""){
 
         alert("Pergunta não pode ser vazia ");
