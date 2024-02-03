@@ -21,7 +21,7 @@ public class QuestaoController {
         *  */
         Qrepository.salvarQ(questao);
     }
-    @GetMapping
+    @GetMapping("/obterquestao")
     public List<Questao> listaQuestoes(){
         return (List<Questao>) Qrepository.findAll();
     }
