@@ -1,6 +1,6 @@
 const enviarQ = document.querySelector("form");
-let iPergunta; // variavel utilizada nos 2 metodos fetch
-let iResposta;// variavel utilizada nos 2 metodos fetch
+let iPergunta; // variavel utilizada no metodo fetch post
+let iResposta;// variavel utilizada no metodo fetch post
 
 enviarQ.addEventListener('focusin', function () {
     document.body.classList.add('blur-background');
@@ -39,6 +39,7 @@ function passarTextoParaHtml(tag, texto){
 function cadastraQuestoes(){
     iPergunta = document.querySelector(".pergunta").value;
     iResposta = document.querySelector(".resposta").value;
+    iPergunta = iPergunta.toLowerCase();
     if(iPergunta == ""){
 
         alert("Pergunta não pode ser vazia ");
@@ -72,8 +73,8 @@ function cadastraQuestoes(){
  * Funçao responsavel por obter uma resposta(CORPO JSON) atraves da pergunta.
  */
 function obterQuestoes(){
-    const pergunta = document.querySelector(".pergunta").value
-
+    let pergunta = document.querySelector(".pergunta").value
+    pergunta = pergunta.toLowerCase();
     const params = new URLSearchParams({ // transforma nosso parametro em um URL 
     pergunta // precisa ser mesmo nome que o requisitado na api
     })
