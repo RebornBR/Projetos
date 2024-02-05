@@ -14,15 +14,17 @@
     <main>
         <h1>Banco de questões</h1>
         <form action = "">
-            <label><h2>Pergunta</h2></label> 
-            <textarea type="string" class= "pergunta" name = ".pergunta" placeholder="Digite a pergunta"></textarea>
-            <label><h2>Resposta</h2></label> 
+            <p class="subtitle">Pergunta</p> 
+            <textarea type="string" class= "pergunta" name = ".pergunta"            placeholder="Digite a pergunta"></textarea>
+            <p class="subtitle">Resposta</p> 
             <textarea type="string" class= "resposta" name = ".resposta" placeholder="Digite a resposta"></textarea>
-            <button type="submit">Enviar</button>
+            <div class="send-btn">
+                <button type="button" onclick="obterQ()" class="container__botao botoes">Pesquisar</button>
+                <button class="botoes" type="submit">Enviar</button>
+            </div>
         </form>
-        <button onclick="obterQ()" class="container__botao">O</button>
     </main>
-
+    
     <script src="app.js"></script>
 </body>
 </html>
