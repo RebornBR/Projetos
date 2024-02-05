@@ -112,11 +112,3 @@ enviarQ.addEventListener('submit', function (event) {
     event.preventDefault();
     cadastraQuestoes();
 })
-
-function redirecionarParaObterQuestao(){
-    alert("implementar a lógica")
-}
-
-function redirecionarParaEnviarQuestao(){
-    alert("implementar a lógica")
-}
