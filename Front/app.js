@@ -90,11 +90,12 @@ function obterQuestoes(){
     .then(response => response.json())
     .then(Questao=>{
         if(Object.keys(Questao).length == 0){
-        alert("Questão não encontrada no banco de dados");
+        passarTextoParaHtml("h4", `Questão não encontrada no banco de dados, procure outra questão`)
         }else{
         console.log(Questao);
         let respostaQ = JSON.stringify(Questao); // variavel que obtem o JSON convertido em string
         console.log(respostaQ);
+        passarTextoParaHtml("h4", `Questão: ${respostaQ}`)
         /* implementar função passarTextoParaHtml(), responsavel por exibir o retorno da resposta respectiva a pergunta, pela nossa funçao obterQuestões(
          */
         }
@@ -110,3 +111,11 @@ enviarQ.addEventListener('submit', function (event) {
     event.preventDefault();
     cadastraQuestoes();
 })
+
+function redirecionarParaObterQuestao(){
+    alert("implementar a lógica")
+}
+
+function redirecionarParaEnviarQuestao(){
+    alert("implementar a lógica")
+}

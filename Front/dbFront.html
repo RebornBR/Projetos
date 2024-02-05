@@ -14,13 +14,13 @@
     <main>
         <h1>Banco de questões</h1>
         <form action = "">
-            <p class="subtitle">Pergunta</p> 
+            <p class="subtitle">-</p> 
             <textarea type="string" class= "pergunta" name = ".pergunta"            placeholder="Digite a pergunta"></textarea>
-            <p class="subtitle">Resposta</p> 
+            <p class="subtitle">-</p> 
             <textarea type="string" class= "resposta" name = ".resposta" placeholder="Digite a resposta"></textarea>
             <div class="send-btn">
-                <button type="button" onclick="obterQ()" class="container__botao botoes">Pesquisar</button>
                 <button class="botoes" type="submit">Enviar</button>
+                <button type="button" onclick="redirecionarParaObterQuestao()" class="container__botao botoes">Pesquisar questões</button>
             </div>
         </form>
     </main>

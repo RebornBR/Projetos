@@ -60,6 +60,28 @@ h2{
 
 }
 
+h3 {
+  color:aliceblue;
+  border-bottom: solid 1px white;
+  text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  font-size: 60px;
+  padding: 10px;
+  margin: 12px;
+
+}
+
+h4 {
+  color:aliceblue;
+  border-bottom: solid 1px white;
+  text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  font-size: 20px;
+  padding: 10px;
+  margin: 12px;
+
+}
+
 .pergunta, .resposta{
   width: 500px;
   height: 150px;
