@@ -40,6 +40,7 @@ function cadastraQuestoes(){
     iPergunta = document.querySelector(".pergunta").value;
     iResposta = document.querySelector(".resposta").value;
     iPergunta = iPergunta.toLowerCase();
+    iPergunta = iPergunta.trim();
     if(iPergunta == ""){
 
         alert("Pergunta não pode ser vazia ");
@@ -75,6 +76,8 @@ function cadastraQuestoes(){
 function obterQuestoes(){
     let pergunta = document.querySelector(".pergunta").value
     pergunta = pergunta.toLowerCase();
+    pergunta = pergunta.trim();
+    passarTextoParaHtml("h4", `Questão: [{"id":2002,"pergunta":"quem foi tiradentes ?","resposta":"Joaquim José da Silva Xavier, também conhecido pelo apelido de “Tiradentes”, consagrou-se por sua participação ativa na Inconfidência Mineira. Tragicamente, ele foi o único dos envolvidos no movimento a receber a pena de morte, uma vez que os outros envolvidos foram perdoados pela Coroa Portuguesa."}]`)
     const params = new URLSearchParams({ // transforma nosso parametro em um URL 
     pergunta // precisa ser mesmo nome que o requisitado na api
     })

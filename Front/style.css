@@ -72,11 +72,12 @@ h3 {
 }
 
 h4 {
-  color:aliceblue;
-  border-bottom: solid 1px white;
-  text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
+  border: 2px solid #ffffff;
+  color:rgb(255, 255, 255);
+  border-bottom: solid 2px rgb(255, 255, 255);
+  text-shadow: 6px 6px 10px rgb(0, 0, 0);
   font-weight: 500;
-  font-size: 20px;
+  font-size: 30px;
   padding: 10px;
   margin: 12px;
 
