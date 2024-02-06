@@ -50,7 +50,7 @@ function cadastraQuestoes(){
         alert("Resposta não pode ser vazia ");
 
     }else{
-    alert(`Pergunta: ${iPergunta} // Resposta: ${iResposta}  foi enviada e salva no banco de dados.`)
+    //alert(`Pergunta: ${iPergunta} // Resposta: ${iResposta}  foi enviada e salva no banco de dados.`)
     fetch("http://localhost:8080/bancoquestao/salvar",
     {
         headers:{
@@ -77,7 +77,6 @@ function obterQuestoes(){
     let pergunta = document.querySelector(".pergunta").value
     pergunta = pergunta.toLowerCase();
     pergunta = pergunta.trim();
-    passarTextoParaHtml("h4", `Questão: [{"id":2002,"pergunta":"quem foi tiradentes ?","resposta":"Joaquim José da Silva Xavier, também conhecido pelo apelido de “Tiradentes”, consagrou-se por sua participação ativa na Inconfidência Mineira. Tragicamente, ele foi o único dos envolvidos no movimento a receber a pena de morte, uma vez que os outros envolvidos foram perdoados pela Coroa Portuguesa."}]`)
     const params = new URLSearchParams({ // transforma nosso parametro em um URL 
     pergunta // precisa ser mesmo nome que o requisitado na api
     })
@@ -99,9 +98,9 @@ function obterQuestoes(){
         console.log(Questao);
         let respostaQ = JSON.stringify(Questao); // variavel que obtem o JSON convertido em string
         console.log(respostaQ);
-        passarTextoParaHtml("h4", `Questão: ${respostaQ}`)
-        /* implementar função passarTextoParaHtml(), responsavel por exibir o retorno da resposta respectiva a pergunta, pela nossa funçao obterQuestões(
-         */
+        respostaQ = respostaQ.slice(12, -2);
+        passarTextoParaHtml("h4", `${respostaQ}`)
+        limparCampo(".pergunta");
         }
     })
 }
