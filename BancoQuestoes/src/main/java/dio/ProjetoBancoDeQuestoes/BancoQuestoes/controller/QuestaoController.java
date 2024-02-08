@@ -23,6 +23,6 @@ public class QuestaoController {
     }
     @GetMapping("/obterquestao")
     public List<Questao> listaQuestoes(@RequestParam String pergunta ){
-        return (List<Questao>) Qrepository.obterQ_PorPergunta(pergunta);
+        return (List<Questao>) Qrepository.findByPerguntaContaining(pergunta);
     }
 }

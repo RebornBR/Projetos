@@ -22,8 +22,8 @@ public interface QuestaoRepository extends JpaRepository<Questao, Long> {
         save(questao);
     }
 
-    @Query("from Questao t where t.pergunta = :pergunta ")
-    List<Questao> obterQ_PorPergunta(@Param("pergunta")String pergunta);
+
+    List<Questao> findByPerguntaContaining(@Param("pergunta")String pergunta);
  /*
  Ou podemos utilizar apenas:
  List<Questao> findBypergunta(String pergunta);
