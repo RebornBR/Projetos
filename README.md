@@ -22,10 +22,11 @@
 </div>
 <h3>Descrição do projeto</h3>
 <h4>O projeto banco de questões foi idealizado e construído com o objetivo de armazenar as questões utilizadas nas avaliações de autoaprendizagem da faculdade. Esse é um projeto onde pude pôr em prática vários dos conteúdos aprendidos durante o Bootcamp de Java, como: POO, Spring FrameWork, PostgreSQL, Swagger e SQL. Com a ajuda da <a href="https://github.com/ThataCorreia/">Thaís Correia</a>, colega de faculdade e Dev Front-End, que criou a interface para o uso da api Back End(deploy no render), inicialmente de forma local para testes e, finalmente, após muitos erros, conseguimos colocar esse projeto no ar. 
-  
+<br>  
 
 > [!IMPORTANT]
 > Infelizmente, pelo fato do serviço utilizado no render ser free, após a inatividade existe um atraso significativo na primeira requisiçao, ocasionando um atraso na solicitação de 50 segundos ou mais, então, se você utilizá-lo, peço que tenha paciência caso esteja fazendo a primeira requisição.
+<br>
 <p>
 <div align="center"> 
 <a href="https://bancode-questao-front.vercel.app/">Clique aqui para testar</a></h4>
