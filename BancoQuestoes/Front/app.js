@@ -41,17 +41,8 @@ function cadastraQuestoes(){
     iResposta = document.querySelector(".resposta").value;
     iPergunta = iPergunta.toLowerCase();
     iPergunta = iPergunta.trim();
-    if(iPergunta == ""){
-
-        alert("Pergunta não pode ser vazia ");
-
-    }else if(iResposta == ""){
-        
-        alert("Resposta não pode ser vazia ");
-
-    }else{
-    //alert(`Pergunta: ${iPergunta} // Resposta: ${iResposta}  foi enviada e salva no banco de dados.`)
-    fetch("http://localhost:8080/bancoquestao/salvar",
+    
+    fetch("http://localhost:8080/requestMapping/postMapping", // insera o endereço da sua api, se local, permaneça com o localHost, se na nuvem, utilize o endereço de lá
     {
         headers:{
             "Accept": "application/json",
@@ -68,7 +59,7 @@ function cadastraQuestoes(){
     limparCampo(".pergunta");
     limparCampo(".resposta");
 }
-}
+
 
 /**
  * Funçao responsavel por obter uma resposta(CORPO JSON) atraves da pergunta.
@@ -81,8 +72,8 @@ function obterQuestoes(){
     pergunta // precisa ser mesmo nome que o requisitado na api
     })
 
-    //alert(params) // efetivo para testes, compare com o back end no swagger, será o mesmo endereço composto pela url http://localhost:8080/bancoquestao/obterquestao? e a pergunta
-    fetch(`http://localhost:8080/bancoquestao/obterquestao?${params}`,
+    //alert(params) // efetivo para testes, compare com o back end no swagger, será o mesmo endereço composto pela url http://localhost:8080/requestMapping/getMapping? e a pergunta
+    fetch(`http://localhost:8080/requestMapping/getMapping?${params}`, 
     {
         headers:{
             "Accept": "application/json",
@@ -93,12 +84,12 @@ function obterQuestoes(){
     .then(response => response.json())
     .then(Questao=>{
         if(Object.keys(Questao).length == 0){
-        passarTextoParaHtml("h4", `Questão não encontrada no banco de dados, procure outra questão`)
+        passarTextoParaHtml("h4", `Questão não encontrada no banco de dados, adicione ou procure outra questão.`)
         }else{
         console.log(Questao);
         let respostaQ = JSON.stringify(Questao); // variavel que obtem o JSON convertido em string
         console.log(respostaQ);
-        respostaQ = respostaQ.slice(12, -2);
+        respostaQ = respostaQ.slice(2, -2);
         passarTextoParaHtml("h4", `${respostaQ}`)
         limparCampo(".pergunta");
         }
