@@ -41,6 +41,7 @@ function cadastraQuestoes(){
     iResposta = document.querySelector(".resposta").value;
     iPergunta = iPergunta.toLowerCase();
     iPergunta = iPergunta.trim();
+    iPergunta = iPergunta.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     
     fetch("http://localhost:8080/requestMapping/postMapping", // insera o endereço da sua api, se local, permaneça com o localHost, se na nuvem, utilize o endereço de lá
     {
@@ -68,6 +69,7 @@ function obterQuestoes(){
     let pergunta = document.querySelector(".pergunta").value
     pergunta = pergunta.toLowerCase();
     pergunta = pergunta.trim();
+    pergunta = pergunta.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     const params = new URLSearchParams({ // transforma nosso parametro em um URL 
     pergunta // precisa ser mesmo nome que o requisitado na api
     })
@@ -86,12 +88,9 @@ function obterQuestoes(){
         if(Object.keys(Questao).length == 0){
         passarTextoParaHtml("h4", `Questão não encontrada no banco de dados, adicione ou procure outra questão.`)
         }else{
-        console.log(Questao);
-        let respostaQ = JSON.stringify(Questao); // variavel que obtem o JSON convertido em string
-        console.log(respostaQ);
-        respostaQ = respostaQ.slice(2, -2);
-        passarTextoParaHtml("h4", `${respostaQ}`)
-        limparCampo(".pergunta");
+            let respostaQ = JSON.stringify(Questao, ["pergunta","resposta"]); // variavel que obtem o JSON convertido em string
+            passarTextoParaHtml("h4", `${respostaQ}`)
+            limparCampo(".pergunta");
         }
     })
 }
