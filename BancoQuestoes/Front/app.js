@@ -28,6 +28,31 @@ function passarTextoParaHtml(tag, texto){
         let campo = document.querySelector(tag);
         campo.innerHTML = texto;
     }
+
+/**
+ * Método replace criado especificamente para o tratamento da resposta obtida atráves da requisição
+ * @param {*} txt 
+ * RETORNO SEM REPLACE [{"pergunta":"1+1","resposta":"2"}]
+ * @returns txt
+ */
+function replacePadrao(txt){
+    /* podemos utilizar
+    txt = txt.replace(/resposta/g , "<br>") 
+    txt = txt.replace(/":"/g , "")
+    txt = txt.replace(/","/g , " ? ")
+    Terá o mesmo retorno porém aumenta a chance de pular linha quando encontramos no retorno a palavra resposta. Por isso substiuimos dessa forma:
+    txt = txt.replace(/"resposta/g , "<br>") para mitigar essa possibilidade.
+    txt = txt.replace(/",/g , " ? ")
+    */
+    txt = txt.replace(/{/g , "")
+    txt = txt.replace(/"pergunta/g , "•Pergunta: ")
+    txt = txt.replace(/"resposta/g , "<br>") // serve para substituir o resposta e pular linha no html  
+    txt = txt.replace(/":"/g , "")
+    txt = txt.replace(/",/g , " ? ")
+    txt = txt.replace(/"}/g , "<br>")
+    txt = txt.slice(1, -1); // apaga o 1 primerio e o ultimo caractere, isto é, [ & ]
+    return txt
+}
     
 /**
  * Função responsavel por fazer o fetch do method post
@@ -39,11 +64,10 @@ function passarTextoParaHtml(tag, texto){
 function cadastraQuestoes(){
     iPergunta = document.querySelector(".pergunta").value;
     iResposta = document.querySelector(".resposta").value;
-    iPergunta = iPergunta.toLowerCase();
-    iPergunta = iPergunta.trim();
-    iPergunta = iPergunta.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    
-    fetch("http://localhost:8080/requestMapping/postMapping", // insera o endereço da sua api, se local, permaneça com o localHost, se na nuvem, utilize o endereço de lá
+    iPergunta = iPergunta.toLowerCase(); // transforma letra em minuscula
+    iPergunta = iPergunta.trim(); // limpa os espaços em brancos antes do primeiro e apos o ultimo caractere
+    iPergunta = iPergunta.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // remove todos as acentuacoes
+    fetch("https://deploy-bancodequestao.onrender.com/requestMapping/postMapping",  // insira o endereço da sua api, se local, permaneça com o localHost, se na nuvem, utilize o endereço de lá
     {
         headers:{
             "Accept": "application/json",
@@ -69,13 +93,13 @@ function obterQuestoes(){
     let pergunta = document.querySelector(".pergunta").value
     pergunta = pergunta.toLowerCase();
     pergunta = pergunta.trim();
-    pergunta = pergunta.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    pergunta = pergunta.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const params = new URLSearchParams({ // transforma nosso parametro em um URL 
     pergunta // precisa ser mesmo nome que o requisitado na api
     })
 
-    //alert(params) // efetivo para testes, compare com o back end no swagger, será o mesmo endereço composto pela url http://localhost:8080/requestMapping/getMapping? e a pergunta
-    fetch(`http://localhost:8080/requestMapping/getMapping?${params}`, 
+    //alert(params) // efetivo para testes, compare com o back end no swagger, será o mesmo endereço composto pela url http://localhost:8080/bancoquestao/obterquestao? e a pergunta
+    fetch(`https://deploy-bancodequestao.onrender.com/requestMapping/getMapping?${params}`,
     {
         headers:{
             "Accept": "application/json",
@@ -86,17 +110,21 @@ function obterQuestoes(){
     .then(response => response.json())
     .then(Questao=>{
         if(Object.keys(Questao).length == 0){
-        passarTextoParaHtml("h4", `Questão não encontrada no banco de dados, adicione ou procure outra questão.`)
-        }else{
-            let respostaQ = JSON.stringify(Questao, ["pergunta","resposta"]); // variavel que obtem o JSON convertido em string
-            passarTextoParaHtml("h4", `${respostaQ}`)
-            limparCampo(".pergunta");
-        }
+                passarTextoParaHtml("h4", `Questão não encontrada no banco de dados, adicione ou procure outra questão.`)
+            }else{
+                let respostaQ = JSON.stringify(Questao, ["pergunta","resposta"]); // variavel que obtem o JSON convertido em string
+                respostaQ = replacePadrao(respostaQ);
+                passarTextoParaHtml("h4", `${respostaQ}`)
+            }
     })
 }
 
 
 function obterQ(){
+    obterQuestoes();
+}
+
+function teclando(){
     obterQuestoes();
 }
 
