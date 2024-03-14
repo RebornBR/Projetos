@@ -1,0 +1,241 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap'); /*importação do tipo de letra, pelo google fonts, lá mostra como fazer o import, tem varios jeitos*/
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/*Podemos trazer varias fontes em um mesmo import, exemplo:
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Protest+Riot&display=swap');
+basta apenas escolhermos todas as fontes que queremos no google fonts
+*/
+
+:root{
+    /*Criação de uma variavel no css, para caso utilizemos a mesma cor, fonte, peso ou mesmo valor, varias vezes ao decorrer do código.
+    a variável permite uma alteração em apenas um ponto, que irá refletir em todos os lugares que utilizarmos essa variável*/
+    --fonteKronaOne:"Krona One", sans-serif;
+    --fonteProtestRiot: "Protest Riot", sans-serif; ;
+    --fonteMontSerrat: "Montserrat", sans-serif;
+    --corVermelha: red;
+    --corBranca: white;
+ }
+ 
+ *{
+     margin: 0;
+     padding: 0;
+ }
+ 
+ body{
+     height: 100%; /*define o quanto da tela nosso body vai ocupar, nessa caso, a tela toda, contudo podemos tirar.*/
+     min-height: 100vh;
+     box-sizing: border-box; /*garante que nenhum elemento sairá do corpo, isto é, do tamanho da tela. por exemplo, uma imagem, mas vc pode simplesmente n usar, a depender do q quer*/
+     background-image: url('./assets/fundoTecnologiaVermelho2.jpg');
+     background-repeat: no-repeat; /*serve para a imagem n repetir caso n seja do tamanho correto*/
+     background-size:cover; /*tamanho que a imagem do background vai ter*/
+     background-position-y: center center;
+     color: white;
+     background-attachment: fixed;
+ }
+ .destaqueRed{
+     color: var(--corVermelha); /*Maneira de utilizar a variável*/
+     font-family: var(--fonteKronaOne); /*Maneira de utilizar a variável*/
+     font-weight: 600;
+ }
+ .destaqueBranco{
+    color: var(--corBranca); /*Maneira de utilizar a variável*/
+    font-family: var(--fonteKronaOne); /*Maneira de utilizar a variável*/
+    font-weight: 600;
+ }
+  
+ .apresentar{ 
+     /*Tudo que for dessa classe será alinhado com o display: flex e alling-items: center*/
+     padding: 8% 19%; /*define os espaçamentos do conteúdo e suas bordas entre os elementos presente dentro dele, SUPERIOR/INFERIOR e LATERAIS*/
+     display: flex; /*torna todos os elementos filhos desse flex manipuláveis(cria tipo uma caixa, onde tudo q tiver dentro deve seguir as regras aqui estabelecidas)
+ , em outras palavras, tudo que estiver dentro dele, dentro do elemento com a class(apresentar).*/
+     align-items: center; 
+     justify-content: space-between; /*Serve para justiticar o conteudo os separando por um pequeno espaço*/
+ }
+ 
+ .apresentandoTexto{ /*Sessão(section que criamos) que contém nossos textos e botões*/
+     width: 50%; /*Largura*/ /*é importante utilizar medida relativa, pois um usuário pode ter um tamanho de letra diferente, configurada no seu navegador, portanto é bom tem as definições de tamanho de ocupaçao de tela 
+     com medidas relativas*/
+     display: flex; /*torna todos os elementos filhos desse flex manipuláveis(cria tipo uma caixa, onde tudo q tiver dentro deve seguir as regras aqui estabelecidas), em outras palavras, tudo que estiver dentro dele.*/
+     flex-direction: column; /*Torna todos os elementos filhos, isto é, que estão dentro do elemento com a class (apresentandoTexto). Serão exibidos na direção colum, teste com row(linha) para ver diferença*/
+     gap: 15px; /*define o espaçamento entre os elementos, espaçamento no sentido colum, nesse caso., teste com outros valores*/
+     padding-bottom: 10%; /*define o espaçamento do proximo conteúdo, nesse caso o rodapé*/
+ }
+ 
+ .apresentandoTitulo{
+     font-family:  var(--fonteKronaOne); /*Maneira de utilizar a variável*/ /*"Krona One", sans-serif; para utilizarmos a fonte que importamos*/
+     font-size: 1.75rem; /*tamanho letra*/ /*16px equivale a 1rem*/ 
+ }
+ 
+ .apresentandoParagrafo{
+     font-family: var(--fonteMontSerrat); /*Maneira de utilizar a variável*/
+     font-size: 1.125rem; /*16px equivale a 1rem*/ 
+     font-weight: 600; /*define o peso da letra, tornando ela mais grossa, ou mais fina.*/
+     padding: 2% 0 0 0%;
+ }
+ 
+ .apresentandoTitulo:hover{
+     font-size: 3rem;
+ }
+ 
+ .apresentandoParagrafo:hover{
+     font-size: 1.5rem;
+ }
+ 
+ .contImgVideo{
+    width: 100%;
+ }
+ 
+ .divBtLink{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 20px;
+     justify-content: space-between;
+     padding: 3% 0 0 0%; /*podemos utilizar até 4 valores no padding, Primeiro(superior) Segundo(direito) Terceiro(inferior) Quarto(esquerdo)*/
+
+ }
+ 
+ .botao{
+     display: flex; /*torna dos os elementos filhos manipulaveis, isto é, seguirão oq está definido nessa class*/
+     justify-content: center; /* alinha o conteudo ao centro*/
+     gap: 16px;
+     color: var(--corBranca);
+     text-decoration: none;
+     text-align: center; /*alinha o texto*/
+     /*text-decoration: none;remove a ________ embaixo do nosso link*/
+     font-family: var(--fonteMontSerrat); /*Maneira de utilizar a variável*/
+     font-size: 1.5rem;
+     font-weight: 600; /*indica o peso da letra, basicamente a grossura da mesma*/
+     border: 3px solid var(--corBranca) ;  /*podemos retirar o background do botão, ou seja, deixar sem fundo e estilizar apenas as suas bordas, dizendo a expressura e sua cor. Podemos tbm utilizar border-imagem e definir uma imagem para a borda*/
+     width: 50%; /*largura*/
+     padding: 21.5px 0; /*define a distancia do conteudo(texto) até a borda superior e inferior e dps para a borda lateral*/
+     border-radius: 16px;  /*serve para fazer o arredondamento da borda*/
+ }
+ .botao:hover{ /* quando o nossso mouse passar em cima da class botao, ocorerra uma animação */
+     color: var(--corBranca);
+     font-weight: 800;
+     border: 3px solid var(--corVermelha) ;
+     padding: 3% /*define os espaçamentos do conteúdo e suas bordas */
+ }
+ 
+ 
+ .cabecalho{
+     padding: 3% 0 0 3%; /*podemos utilizar até 4 valores no padding, Primeiro(superior) Segundo(direito) Terceiro(inferior) Quarto(esquerdo)*/
+    
+ }
+ 
+ .menuCabecalho{
+     display: flex;
+     flex-direction: row;
+     gap: 3%;
+ }
+ 
+ .opcoesCabecalho{
+     font-family: var(--fonteMontSerrat); /*Maneira de utilizar a variável*/
+     font-size: 1.25rem; 
+     font-weight: 600;
+     color: var(--corBranca); /*Maneira de utilizar a variável*/
+     text-decoration: none; /*retira o sublinhado abaixo do link*/
+  
+ }
+ 
+ .opcoesCabecalho:hover{
+     font-size: 1.5rem;
+     color: var(--corVermelha);
+ }
+ 
+ .rodape{
+     display: flex;
+     justify-content: center;
+     position: fixed;
+     background-color: black;
+     bottom: 0; /*garante que o footer, rodape, esteja no final da página*/
+     width: 100%;
+     gap: 3px;
+     color:var(--corBranca); 
+     font-family: var(--fonteKronaOne); /*Maneira de utilizar a variável*/
+     font-size: 1rem;  
+     text-align: center;  
+ }
+ @media (max-width: 800px){
+     body{
+        background-image: url("/styles/assets/fundoTecnologiaVermelho2Mobile.jpg");
+     }
+     .cabecalho{
+         padding: 10%;
+     }
+     .menuCabecalho{
+         justify-content: center;
+         gap:10%;
+     }
+     .opcoesCabecalho{
+        font-size: 1.0rem;
+     }
+
+     .opcoesCabecalho:hover{
+        font-size: 1.0rem;
+     }
+
+     .apresentar{
+         flex-direction: column;
+         justify-content: center center;
+         padding: 10%;
+     }
+     .apresentandoTexto{
+         width: auto; /*torna a largura do nosso texto automática*/
+     }
+
+     .apresentandoTitulo{/*Maneira de utilizar a variável*/ /*"Krona One", sans-serif; para utilizarmos a fonte que importamos*/
+        font-size: 1.086rem; 
+        text-align: center;
+       
+    }
+    
+    .apresentandoParagrafo{
+        font-family: var(--fonteMontSerrat); 
+        font-size: 0.89rem; 
+        font-weight: 600; 
+        padding: 3% 0 0 5%;
+
+    }
+    
+    .apresentandoTitulo:hover{
+        font-size: 1.086rem;
+    }
+    
+    .apresentandoParagrafo:hover{
+        font-size: 0.89rem;
+    }
+
+     .contImgVideo{
+        width: 90%;
+        align-self: center;
+     }
+
+     .rodape{
+        position: fixed;
+        background-color: black;
+        justify-content: center;
+        font-size: 0.6rem;
+     }
+     .divBtLink{
+        padding: 5% 0 0 0%;
+        font-size: 0.7rem ;
+     }
+     .botao{
+        font-size: 0.9rem;
+     }
+ }
+ 
+ @media (max-width: 415px){
+    .opcoesCabecalho{
+        font-size: 0.868rem;
+    }
+
+    .opcoesCabecalho:hover{
+        font-size: 0.868rem;
+    }
+     
+    
+ }   

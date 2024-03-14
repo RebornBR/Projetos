@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --fonteKronaOne:"Krona One", sans-serif;
+    --fonteProtestRiot: "Protest Riot", sans-serif; ;
+    --fonteMontSerrat: "Montserrat", sans-serif;
+    --corVermelha: red;
+    --corBranca: white;
+ }
+ 
+ *{
+     margin: 0;
+     padding: 0;
+ }
+ 
