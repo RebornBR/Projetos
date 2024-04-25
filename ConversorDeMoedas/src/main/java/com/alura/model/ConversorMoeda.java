@@ -1,13 +1,8 @@
 package com.alura.model;
 
 import com.alura.services.ExchangeRateApi;
-import com.google.gson.Gson;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 public class ConversorMoeda extends  ExchangeRateApi{
     private String nomeMoedaQueTenho;
@@ -15,13 +10,13 @@ public class ConversorMoeda extends  ExchangeRateApi{
     private double taxaDeCambio;
 
     public ConversorMoeda() {
-
+        //construtor vazio
     }
 
-    protected ConversorMoeda(ConversorMoedaRecord conversorMoedaRecord) {
-        this.nomeMoedaQueTenho = conversorMoedaRecord.base_code();
-        this.nomeMoedaQueQuero = conversorMoedaRecord.target_code();
-        this.taxaDeCambio = conversorMoedaRecord.conversion_rate();
+    protected ConversorMoeda(CambioMoedaRecord cambioMoedaRecord) { // construtor que recebe um CambioMoedaRecord
+        this.nomeMoedaQueTenho = cambioMoedaRecord.base_code();
+        this.nomeMoedaQueQuero = cambioMoedaRecord.target_code();
+        this.taxaDeCambio = cambioMoedaRecord.conversion_rate();
     }
     public double getTaxaDeCambio() {
         return taxaDeCambio;
@@ -33,9 +28,27 @@ public class ConversorMoeda extends  ExchangeRateApi{
         return nomeMoedaQueQuero;
     }
 
-    public String converterMoeda(String moedaQueTenho, double valorQueTenhoDaMoedaQueTenho ,  String moedaQueQuero  ) throws IOException, InterruptedException {
-        ConversorMoeda conversorMoeda = new ConversorMoeda(taxaDeConversaoDessaMoedaParaEssaMoeda(moedaQueTenho, moedaQueQuero));
-        return conversorMoeda + "\n" + "Valor em " + moedaQueQuero + " é = " + valorQueTenhoDaMoedaQueTenho * conversorMoeda.getTaxaDeCambio();
+    public void converterMoeda(String moedaQueTenho, double valorQueTenhoDaMoedaQueTenho ,  String moedaQueQuero  ) throws IOException, InterruptedException {
+        moedaQueTenho = moedaQueTenho.toUpperCase();
+        moedaQueQuero = moedaQueQuero.toUpperCase();
+        try {
+            ConversorMoeda conversorMoeda = new ConversorMoeda(informacaoCambioMoeda(moedaQueTenho, moedaQueQuero));
+            Double valorMoedaConvertido = valorQueTenhoDaMoedaQueTenho * conversorMoeda.getTaxaDeCambio();
+            System.out.println(valorQueTenhoDaMoedaQueTenho + " " + moedaQueTenho.toUpperCase() + " em " + moedaQueQuero.toUpperCase() + " é = " + valorMoedaConvertido);
+        }catch (NullPointerException e) {
+            System.out.println("Sigla da moeda não foi reconhecida, por favor confira. " + moedaQueTenho + " " +  moedaQueQuero );
+        }
+    }
+
+    public void informacaoTaxaDeConversao(String moedaQueTenho, String moedaQueQuero) throws IOException, InterruptedException {
+        moedaQueTenho = moedaQueTenho.toUpperCase();
+        moedaQueQuero = moedaQueQuero.toUpperCase();
+        try {
+            ConversorMoeda conversorMoeda = new ConversorMoeda(informacaoCambioMoeda(moedaQueTenho, moedaQueQuero));
+            System.out.println(conversorMoeda); // retorna nosso objeto no SOUT, ou seja, será retornado seu toString
+        }catch (NullPointerException e) {
+            System.out.println("Sigla da moeda não foi reconhecida, por favor confira. " + moedaQueTenho + " " +  moedaQueQuero );
+        }
     }
 
     @Override
@@ -43,7 +56,7 @@ public class ConversorMoeda extends  ExchangeRateApi{
         return """
                 Nome da moeda base: %s
                 Nome da moeda para câmbio: %s
-                Taxa de conversão: %f
-                """.formatted(getNomeMoedaQueTenho(), getNomeMoedaQueQuero(), getTaxaDeCambio()) + "\n";
+                Taxa de conversão: %f  (Ou seja, 1 %s equivale a %f %s)
+                """.formatted(getNomeMoedaQueTenho(), getNomeMoedaQueQuero(), getTaxaDeCambio(), getNomeMoedaQueTenho(),getTaxaDeCambio(), getNomeMoedaQueQuero() ) + "\n";
     }
 }

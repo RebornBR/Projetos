@@ -1,7 +1,6 @@
 package com.alura.services;
 
-import com.alura.model.ConversorMoeda;
-import com.alura.model.ConversorMoedaRecord;
+import com.alura.model.CambioMoedaRecord;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -14,7 +13,7 @@ public class ExchangeRateApi {
     String moedaQueTenho;
     String moedaQueQuero;
     String endereco;
-    protected ConversorMoedaRecord taxaDeConversaoDessaMoedaParaEssaMoeda(String moedaQueTenho, String moedaQueQuero) throws IOException, InterruptedException {
+    protected CambioMoedaRecord informacaoCambioMoeda(String moedaQueTenho, String moedaQueQuero) throws IOException, InterruptedException {
         this.moedaQueTenho = moedaQueTenho;
         this.moedaQueQuero = moedaQueQuero;
         endereco = "https://v6.exchangerate-api.com/v6/25a38b952e41e3814c74513d/pair/" + moedaQueTenho + "/" + moedaQueQuero+ "/";
@@ -23,7 +22,7 @@ public class ExchangeRateApi {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         Gson gson = new Gson();
         String json = response.body();
-        ConversorMoedaRecord conversorMoedaRecord = gson.fromJson(json, ConversorMoedaRecord.class); // criando um objeto ConversaMoedaRecord, que fará a leitura do json(que recebeu o response.body()) e os campos de mesmos nomes terão seus valores pegos pelo Record com atributos de mesmos nomes
-        return conversorMoedaRecord;
+        CambioMoedaRecord cambioMoedaRecord = gson.fromJson(json, CambioMoedaRecord.class); // criando um objeto CambioMoedaRecord, que fará a leitura do json(que recebeu o response.body()) e os campos de mesmos nomes terão seus valores pegos pelo Record com atributos de mesmos nomes
+        return cambioMoedaRecord;
     }
 }
