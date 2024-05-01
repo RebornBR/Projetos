@@ -8,7 +8,6 @@ Para uso da API remota vc deve utilizar o seguinte prefixo na url:
 <code>https://arquimedesback.onrender.com/arquimedesMatematica/operacao</code>
 <br> O prefixo deve ser seguido com o nome da operacao e seus respectivos parametros/valores, confira abaixo as operações disponíveis e suas URLs:
 
-
 <code> </code> 
 
   > [!IMPORTANTE]
@@ -60,36 +59,30 @@ Substitua os valores da seguinte forma:
 <a href="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/teoremaDePitagoras/hipotenusa/cateto-ou-Hipotenusa=9/catetoC=12">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/teoremaDePitagoras/hipotenusa/cateto-ou-Hipotenusa=9/catetoC=12</a><br>
 Retorno: 
 
-><code>{
-    <br>
+```json
+{
     "valorDescobrir": "hipotenusa",
-    <br>
     "catetoOuHipotenusa": 9,
-    <br>
     "catetoC": 12,
-    <br>
     "resultado": 15
-    <br>
-}</code>
+}
+```
 
 Nesse exemplo o que precisamos descobrir é a hipotenusa, ou seja, não sabemos o valor da hipotenusa. Nesse exemplo <code> {catetoOuHipotenusa} </code> representa o valor de um cateto e o resultado é o valor doque precisamos descobrir(<code>{valorDescobrir}</code>) ou seja, é o valor da hipotenusa.
-<br><br>
+<br>
 
 <li><h2>Descobrir Cateto:</h2>
 <a href="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/teoremaDePitagoras/cateto/cateto-ou-Hipotenusa=15/catetoC=9">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/teoremaDePitagoras/cateto/cateto-ou-Hipotenusa=15/catetoC=9</a><br>
 Retorno: 
 
-><code>{
-    <br>
+```json
+{
     "valorDescobrir": "cateto",
-    <br>
     "catetoOuHipotenusa": 15,
-    <br>
     "catetoC": 9,
-    <br>
     "resultado": 12
-    <br>
-}</code>
+}
+```
 
 Nesse exemplo o que precisamos descobrir é o cateto, ou seja, não sabemos o valor do cateto. Nesse exemplo <code> {catetoOuHipotenusa} </code> representa o valor de uma hipotenusa e o resultado é o valor doque precisamos descobrir(<code>{valorDescobrir}</code>) ou seja, é o valor do cateto.
 <br><br>
@@ -113,52 +106,52 @@ Substitua os valores da seguinte forma:
 <a href="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/trigonometria/hipotenusa=30/angulo=60">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/trigonometria/hipotenusa=30/angulo=60</a><br>
 Retorno: 
 
-><code>{
-    <br>
-    "identificador": "hipotenusa",<br>
-    "valorDoIdentificador": 30,<br>
-    "angulo": 60,<br>
-    "seno": 0.866,<br>
-    "cosseno": 0.5,<br>
-    "catetoOposto": 25.98,<br>
-    "catetoAdjacente": 15,<br>
-    "hipotenusa": 30<br>
+```json
+{
+    "identificador": "hipotenusa",
+    "valorDoIdentificador": 30,
+    "angulo": 60,
+    "seno": 0.866,
+    "cosseno": 0.5,
+    "catetoOposto": 25.98,
+    "catetoAdjacente": 15,
+    "hipotenusa": 30<
 }
-}</code>
-<br><br>
+```
 
 <li><h2>Identificador Cateto Oposto:</h2>
 <a href="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/trigonometria/catetoOposto=30/angulo=30">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/trigonometria/catetoOposto=30/angulo=30</a><br>
 Retorno: 
 
-><code>{
-    <br>
-     "identificador": "catetooposto",<br>
-    "valorDoIdentificador": 30,<br>
-    "angulo": 30,<br>
-    "seno": 0.5,<br>
-    "cosseno": 0.866,<br>
-    "catetoOposto": 30,<br>
-    "catetoAdjacente": 51.96,<br>
-    "hipotenusa": 60<br>
-}</code>
-<br><br>
+```json
+{
+    "identificador": "catetooposto",
+    "valorDoIdentificador": 30,
+    "angulo": 30,
+    "seno": 0.5,
+    "cosseno": 0.866,
+    "catetoOposto": 30,
+    "catetoAdjacente": 51.96,
+    "hipotenusa": 60
+}
+```
 
 <li><h2>Identificador Cateto Adjacente:</h2>
 <a href="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/trigonometria/catetoadjacente=30/angulo=60">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/trigonometria/catetoadjacente=30/angulo=60</a><br>
 Retorno: 
 
-><code>{
-    <br>
-    "identificador": "catetoadjacente",<br>
-    "valorDoIdentificador": 30,<br>
-    "angulo": 60,<br>
-    "seno": 0.866,<br>
-    "cosseno": 0.5,<br>
-    "catetoOposto": 51.96,<br>
-    "catetoAdjacente": 30,<br>
-    "hipotenusa": 60<br>
-}</code>
+```json
+{
+    "identificador": "catetoadjacente",
+    "valorDoIdentificador": 30,
+    "angulo": 60,
+    "seno": 0.866,
+    "cosseno": 0.5,
+    "catetoOposto": 51.96,
+    "catetoAdjacente": 30,
+    "hipotenusa": 60
+}
+```
 <br><br>
 
 <li> Equação de segundo grau
