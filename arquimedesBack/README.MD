@@ -154,15 +154,331 @@ Retorno:
 ```
 <br><br>
 
-<li> Equação de segundo grau
-<li> Progressão Aritmética 
-<li> Progressão Geometrica 
-<li> Exponencial 
-<li> Fatorial  
-<li> Media 
-<li> Juros Compostos 
-<li> Números aleatórios 
-<li> Conversor de moedas 
+<h1><li> Equação de segundo grau</h1>
+URL para equação de segundo grau:
+<br ><code>https://arquimedesback.onrender.com/arquimedesMatematica/operacao/equacaoSegundoGrau/a={a}/b={b}/c={c}</code>
+<br><br>
+
+<li>double <code>{a}</code>
+<li>double <code>{b} </code> 
+<li>double<code> {c} </code>
+<br><br>
+
+Substitua os valores da seguinte forma:
+<br> 
+<code>{a}</code>, <code>{b}</code> e <code>{c}</code> representam os valores de [a, b, c] da equação, ou seja, substitua pelos equivalentes.<br>
+> Caso a equação não possua uma solução para <code>x1</code> ou <code>x2</code>, ou seja, se a equação não tiver uma solução real, seus valore(s) serão <code>"NaN"</code>
+<br>
+
+<h3>Exemplos:</h3>
+
+Equação com solução real:
+<a href ="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/equacaoSegundoGrau/a=1/b=-1/c=-12
+">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/equacaoSegundoGrau/a=1/b=-1/c=-12</a><br>
+Retorno:
+
+```json
+{
+    "a": 1,
+    "b": -1,
+    "c": -12,
+    "delta": 49,
+    "x1": 4,
+    "x2": -3
+}
+```
+Equação sem solução real:<br>
+<a href="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/equacaoSegundoGrau/a=2/b=3/c=3">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/equacaoSegundoGrau/a=2/b=3/c=3</a><br>
+Retorno:
+
+```json
+{
+    "a": 2,
+    "b": 3,
+    "c": 3,
+    "delta": -15,
+    "x1": "NaN",
+    "x2": "NaN"
+}
+```
+<br><br>
+
+<h1><li> Progressão Aritmética & Progressão Geometrica</h1>
+URL para progressão aritmética:
+<br ><code>https://arquimedesback.onrender.com/arquimedesMatematica/operacao/progressaoAritmetica/primeiroTermo={primeiroTermo}/qtdTermos={qtdTermos}/razao={razao}</code><br>
+URL para progressão geometrica:
+<br ><code>https://arquimedesback.onrender.com/arquimedesMatematica/operacao/progressaoGeometrica/primeiroTermo={primeiroTermo}/qtdTermos={qtdTermos}/razao={razao}</code>
+<br><br>
+
+<li>double <code>{primeiroTermo}</code>
+<li>int <code>{qtdTermos} </code> 
+<li>double<code> {razao} </code>
+<br><br>
+
+Substitua os valores da seguinte forma:
+<br> 
+Substitua <code>{primeiroTermo}</code> pelo primeiro termo da sequência. 
+<br>Substitua <code>{qtdTermos}</code> pelo termo que você deseja saber, em outras palvras, se você deseja saber qual é o número(termo) que está na posição 300 de uma sequencia, substitua <code>{qtdTermos}</code> por ele.<br>
+Subsitua <code>{razao}</code> pela razão da sequência. 
+<br>
+<h3>Exemplos:</h3>
+Progressão aritmética:<br>
+Qual é o décimo termo dessa sequência(2, 4, 6, 8.....) ?<br>
+<a href= "https://arquimedesback.onrender.com/arquimedesMatematica/operacao/progressaoAritmetica/primeiroTermo=2/qtdTermos=10/razao=2">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/progressaoAritmetica/primeiroTermo=2/qtdTermos=10/razao=2</a><br>
+Retorno:(<code>termoGeral</code> representa o valor do ultimo termo, o termo ao qual procuramos, nesse caso, o décimo)
+
+```json
+{
+    "primeiroTermo": 2,
+    "quantidadeTermos": 10,
+    "razao": 2,
+    "termoGeral": 20,
+    "somaTermos": 110
+}
+```
+<br>
+Progressão geometrica:<br>
+Qual é o décimo termo dessa sequência(2, 4, 8, 16.....) ?<br>
+<a href= "https://arquimedesback.onrender.com/arquimedesMatematica/operacao/progressaoGeometrica/primeiroTermo=2/qtdTermos=10/razao=2">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/progressaoGeometrica/primeiroTermo=2/qtdTermos=10/razao=2</a><br>
+Retorno:(<code>termoGeral</code> representa o valor do ultimo termo, o termo ao qual procuramos, nesse caso, o décimo)
+
+```json
+{
+    "primeiroTermo": 2,
+    "quantidadeTermos": 10,
+    "razao": 2,
+    "termoGeralPG": 1024,
+    "somaTermosPG": 2046
+}
+```
+<br><br>
+
+<h1><li> Fatorial</h1>
+URL para Fatorial:
+<br ><code>https://arquimedesback.onrender.com/arquimedesMatematica/operacao/fatorial/numeroFatorial={nFatorial}</code>
+<br><br>
+<li>int <code>{fatorial}</code>
+<br><br>
+Substitua os valores da seguinte forma:
+<br> 
+Substitua <code>{nFatorial}</code> pelo número que você deseja saber o fatorial.
+<br>
+
+<h3>Exemplos:</h3>
+<a href= "https://arquimedesback.onrender.com/arquimedesMatematica/operacao/fatorial/numeroFatorial=5">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/fatorial/numeroFatorial=5}</a><br>
+Retorno:
+
+```json
+{
+    "numeroFatorial": 5,
+    "resultado": 120
+}
+```
+<br><br>
+
+<h1><li> Exponencial</h1>
+URL para Exponencial:
+<br ><code>https://arquimedesback.onrender.com/arquimedesMatematica/operacao/exponencial/base={base}/expoente={expoente}</code>
+<br><br>
+<li>int <code>{base}</code>
+<li>int <code>{base}</code>
+<br><br>
+Substitua os valores da seguinte forma:
+<br>
+se você deseja elevar, por exemplo, 2 elevado a 5. <code>{base}</code> será 2 e <code>{expoente}</code> será 5.
+<br>
+<h3>Exemplos:</h3><br>
+3 elevado a 5:
+<a href="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/exponencial/base=3/expoente=5">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/exponencial/base=3/expoente=5</a><br>
+Retorno:
+
+```json
+{
+    "base": 3,
+    "expoente": 5,
+    "resultado": 243
+}
+```
+<br><br>
+<h1><li> Media</h1>
+URL para media:
+<br ><code>https://arquimedesback.onrender.com/arquimedesMatematica/operacao/media/listNumeros={listaNum}</code>
+<br><br>
+<li>List < Double > <code> {listaNum} </code>
+<br><br>
+Substitua os valores da seguinte forma:
+<br>
+<code> {listaNum} </code> deve ser substituído por uma lista de números separados por vírgula, por exemplo, <code>2.3, 3, 5.7, 5</code>.
+<br>
+<h3>Exemplos:</h3><br>
+<a href="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/media/listNumeros=2.5,2.5,0,5">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/media/listNumeros=2.5,2.5,0,5</a><br>
+Retorno:
+
+```json
+{
+    "numeros": [
+        2.5,
+        2.5,
+        0,
+        5
+    ],
+    "resultado": 2.5
+}
+```
+
+<br><br>
+<h1><li> Juros compostos:</h1>
+URL para juros compostos:
+<br ><code>https://arquimedesback.onrender.com/arquimedesMatematica/operacao/jurosCompostos/valor={vAplicado}/juros={juros}/tempo={tempo}</code>
+<br><br>
+<li>double <code>{vAplicado}</code>
+<li>double<code>{juros} </code> 
+<li>int<code> {tempo} </code>
+<br>
+Substitua os valores da seguinte forma:
+<br>
+<code>{vAplicado}</code> pelo montante aplicado, o quanto foi pego. <br>
+<code>{juros}</code> pela taxa de juros, seja ela mensal ou anual.<br>
+<code> {tempo} </code> pela quantidade de meses ou anos.
+<h3>Exemplos:</h3><br>
+Valor aplicado: 500<br>
+Juros: 5% ao mês<br>
+Tempo: 12 meses<br>
+<a href="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/jurosCompostos/valor=500/juros=5/tempo=12
+">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/jurosCompostos/valor=500/juros=5/tempo=12</a><br>
+Retorno:
+
+```json
+{
+    "valorAplicado": 500,
+    "taxaJuros": 0.05,
+    "tempoAplicacao": 12,
+    "resultado": 897.9281630110651
+}
+```
+<br>
+Valor aplicado: 500<br>
+Juros: 60% ao ano<br>
+Tempo: 2 anos<br>
+<a href="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/jurosCompostos/valor=500/juros=60/tempo=2
+">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/jurosCompostos/valor=500/juros=60/tempo=2</a><br>
+Retorno:<br>
+
+```json
+{
+    "valorAplicado": 500,
+    "taxaJuros": 0.6,
+    "tempoAplicacao": 2,
+    "resultado": 1280.0000000000002
+}
+```
+<br><br>
+<h1><li> Números aleatorios</h1>
+URL para Números aleatorios:
+<br ><code>https://arquimedesback.onrender.com/arquimedesMatematica/operacao/numerosAleatorios/quantidadeNumeros={qtdNumeros}/IntervaloIncial={intervaloInicial}/IntervaloFinal={intervaloFinal}</code>
+<br><br>
+<li>int<code>{qtdNumeros}</code>
+<li>int<code>{intervaloInicial} </code> 
+<li>int<code> {intervaloFinal} </code><br>
+Substitua os valores da seguinte forma:<br>
+<code>{qtdNumeros}</code> pela quantidade de números que você deseja gerar. <br>
+<code>{intervaloInicial} </code> & <code> {intervaloFinal} </code> determinam o intervalo de números que será gerado os números aleatorios, por exemplo, 5-50, será gerados números entre 5 e 50
+<h3>Exemplos:</h3><br>
+<a href="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/numerosAleatorios/quantidadeNumeros=20/IntervaloIncial=1/IntervaloFinal=20">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/numerosAleatorios/quantidadeNumeros=20/IntervaloIncial=1/IntervaloFinal=20</a><br>
+Retorno:
+
+```json
+{
+    "intervaloInicial": 1,
+    "intervaloFinal": 21,
+    "qtdNumeros": 20,
+    "numerosGerados": [
+        7,
+        17,
+        12,
+        6,
+        15,
+        20,
+        4,
+        1,
+        18,
+        11,
+        14,
+        8,
+        16,
+        2,
+        3,
+        13,
+        10,
+        5,
+        9,
+        19
+    ]
+}
+```
+
+<a href= "https://arquimedesback.onrender.com/arquimedesMatematica/operacao/numerosAleatorios/quantidadeNumeros=20/IntervaloIncial=1/IntervaloFinal=100 ">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/numerosAleatorios/quantidadeNumeros=20/IntervaloIncial=1/IntervaloFinal=100 </a><br>
+Retorno:
+
+```json
+{
+    "intervaloInicial": 1,
+    "intervaloFinal": 101,
+    "qtdNumeros": 20,
+    "numerosGerados": [
+        15,
+        90,
+        84,
+        66,
+        17,
+        27,
+        61,
+        46,
+        14,
+        21,
+        50,
+        36,
+        80,
+        54,
+        100,
+        76,
+        81,
+        31,
+        24,
+        16
+    ]
+}
+```
+<br><br>
+
+<h1><li> Conversor de moedas:</h1>
+URL para conversor de moedas:
+<br ><code>https://arquimedesback.onrender.com/arquimedesMatematica/operacao/conversorMoedas/moedaQueTenho={moedaQueTenho}/valorQueTenhoMoedaQueTenho={valorQueTenhoMoedaQueTenho}/moedaQueQuero={moedaQueQuero}}</code>
+<br><br>
+<li>String<code>{moedaQueTenhos}</code>
+<li>double<code> {valorQueTenhoMoedaQueTenho} </code>
+<li>String<code>{moedaQueQuero} </code> 
+<br>
+Substitua os valores da seguinte forma:
+<br>
+String<code>{moedaQueTenhos}</code> Substitua pela sigla da moeda que você tem<br>
+double<code> {valorQueTenhoMoedaQueTenhos} </code> Substitua pelo valor, o quanto você tem da moeda que você tem<br>
+String<code>{moedaQueQuero} </code> Substitua pela sigla da moeda que você deseja
+<h3>Exemplos:</h3><br>
+<a href="https://arquimedesback.onrender.com/arquimedesMatematica/operacao/conversorMoedas/moedaQueTenho=BRL/valorQueTenhoMoedaQueTenho=1000/moedaQueQuero=USD
+">https://arquimedesback.onrender.com/arquimedesMatematica/operacao/conversorMoedas/moedaQueTenho=BRL/valorQueTenhoMoedaQueTenho=1000/moedaQueQuero=USD</a><br>
+Retorno:
+
+```json
+{
+    "nomeMoedaQueTenho": "BRL",
+    "nomeMoedaQueQuero": "USD",
+    "valorQueTenhoMoedaQueTenho": 1000,
+    "taxaDeCambio": 0.1962,
+    "resultado": 196.20000000000002
+}
+```
+
 </ul>
 
 <h3 align="left">Tecnologias utilizadas:</h3>
