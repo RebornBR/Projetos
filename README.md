@@ -9,9 +9,6 @@ O projeto conta com uma API feita em Java(SpringFramework) e com um site para ac
 <h3><a href="https://github.com/RebornBR/Projetos/tree/main/arquimedesBack">Clique aqui para mais informaçoes sobre o uso e funçoes da API desse projeto</a></h3>
 </div>
 <p>
-<div align="center"> 
-<h3><a href="">Clique aqui para acessar o site do Arquimedes(em desenvolvimento)</a></h3>
-</div>
 </p>  
 <div align="center">
 
