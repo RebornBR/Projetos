@@ -497,9 +497,3 @@ Retorno:
 
 |  |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/86569104?v=4" width=115><br><sub>Rodrigo Santos</sub>](https://github.com/RebornBR) |   |
 | :---: | :---: | :---: |
-
-<h3>Colaborador</h3>
-
-|  |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/90629181?v=4" width=115><br><sub>Thaís Correia</sub>](https://github.com/ThataCorreia) |   |
-| :---: | :---: | :---: |
-</div>
