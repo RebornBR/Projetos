@@ -1,4 +1,20 @@
 # Projetos
+<h1 align="center"> Projeto <a href=></a> para acompanhamento de pedidos de uma empresa têxtil</h1>
+<h3 align="left">Descrição do projeto:</h3>
+ O projeto foi criado no intuito de solucionar o problema de geração, identificação e acompanhamento de pedidos. Esse problema gerava inúmeros transtornos, dentre os quais podemos citar: 
+
+ <br>
+ 
+ <li>Perca de identificação de um pedido, o pedido era anotado apenas em um papel onde muitas vezes o papel era perdido, e por consequência impedia o seguimento do pedido para outros setores, até que o mesmo fosse novamente identificado.
+ <li>Os pedidos não eram armazenados em nenhum tipo de banco de dados(sendo identificados unicamente por meio de uma anotação em um papel).
+ <li>Era necessário a locomoção até determinado setor para saber em qual etapa do processo de produção o pedido se encontrava.
+
+<div align="center"> 
+<h3><a href="https://github.com/RebornBR/Projetos/tree/main/AplicacaoRastreio">Clique aqui para mais informaçoes sobre o uso e funçoes da API desse projeto</a></h3>
+</div>
+<p>
+</p>  
+<div align="center">
 
 <br>
 <h1 align="center"> Projeto <a href=></a> Arquimedes</h1>
@@ -13,7 +29,7 @@ O projeto conta com uma API feita em Java(SpringFramework) e com um site para ac
 <div align="center">
 
 <br>
-<h1 align="center"> Projeto <a href= "https://github.com/RebornBR/Projetos/tree/main/BancoQuestoes">Banco de Questões</a> </h1>
+<h1 align="center"> Projeto Banco de Questões</h1>
 <h3 align="left">Descrição do projeto:</h3>
 O projeto banco de questões foi idealizado e construído com o objetivo de armazenar as questões utilizadas nas avaliações de autoaprendizagem da faculdade. Esse é um projeto onde pude pôr em prática vários dos conteúdos aprendidos durante o Bootcamp de Java, como: POO, Spring FrameWork, PostgreSQL, Swagger e SQL.
 <div align="center"> 
