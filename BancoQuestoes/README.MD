@@ -12,19 +12,9 @@ Você pode baixar ou clonar a versão local desse projeto, isso significa que el
 <img src="https://img.shields.io/badge/Visual_Studio-000000?style=for-the-badge&logo=visual%20studio&logoColor=white">
 </div> <br><br>
 
-  > [!IMPORTANT]
-> Infelizmente, pelo fato do serviço utilizado no render ser free, após a inatividade existe um atraso significativo na primeira requisiçao, ocasionando um atraso na solicitação de 50 segundos ou mais, então, se você utilizá-lo, peço que tenha paciência caso esteja fazendo a primeira requisição.
-
-
 <br>
-<p>
-<div align="center"> 
-<h3><a href="https://bancode-questao-front.vercel.app/">Clique aqui para testar</a></h3>
-</div>
-</p>  
 
-<div align="center">
-
+<div align = "center">
 <h3>Autor</h3>
 
 |  |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/86569104?v=4" width=115><br><sub>Rodrigo Santos</sub>](https://github.com/RebornBR) |   |
