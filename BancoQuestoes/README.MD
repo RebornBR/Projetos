@@ -13,13 +13,7 @@ Você pode baixar ou clonar a versão local desse projeto, isso significa que el
 </div> <br><br>
 
 <br>
-<p>
-<div align="center"> 
-<h3><a href="https://bancode-questao-front.vercel.app/">Clique aqui para testar</a></h3>
-</div>
-</p>  
 
-<div align="center">
 
 <h3>Autor</h3>
 
