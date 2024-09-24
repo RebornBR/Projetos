@@ -14,7 +14,7 @@ Você pode baixar ou clonar a versão local desse projeto, isso significa que el
 
 <br>
 
-
+<div align = "center">
 <h3>Autor</h3>
 
 |  |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/86569104?v=4" width=115><br><sub>Rodrigo Santos</sub>](https://github.com/RebornBR) |   |
