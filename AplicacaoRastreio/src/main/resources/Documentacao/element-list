@@ -1,7 +1,0 @@
-com.AplicacaoRastreio
-com.AplicacaoRastreio.controller
-com.AplicacaoRastreio.Model
-com.AplicacaoRastreio.Repository
-com.AplicacaoRastreio.services
-com.AplicacaoRastreio.services.exceptions
-com.AplicacaoRastreio.services.relatorioService
